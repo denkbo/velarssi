@@ -551,13 +551,13 @@ position:absolute;
 select{
   -webkit-appearance:none;  /* QUITA estilo iPhone */
   appearance:none;
-
   width:100%;
   padding:12px;
   border-radius:0;          /* sin redondeado iOS */
   border:1px solid black;
   background:white;
   font-size:16px;           /* importante para iPhone */
+  color: #666;
 }
 .select-box{
   position:relative;
@@ -583,6 +583,9 @@ select{
   transform:translateY(-50%);
   pointer-events:none;
   font-size:14px;
+}
+select option{
+  color:#666;
 }
 
 
