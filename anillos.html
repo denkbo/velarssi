@@ -12,6 +12,7 @@
 </head>
 <div class="overlay" id="overlay" onclick="cerrarTodo()"></div>
 
+
 <body>
     <header>
         <div class="header-movil">
@@ -74,7 +75,18 @@
         <!-- CARRITO -->
         <div class="carrito" id="carrito">
             <h2>Tu pedido</h2>
-            <div id="cart-items"></div>
+            <table class="tabla-carrito">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Talla</th>
+                        <th>€</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+
             <p id="envio" style="color: green; padding: 20px;"></p>
             <h3>Total: <span id="total">0</span>€</h3>
             <button class="pagar" onclick="checkout()">Pagar</button>
@@ -96,12 +108,13 @@
                     <img src="img/E72322FC.jpg">
                     <h3>Anillo Plata</h3>
                     <p class="precio">25€</p>
-
-                    <select class="talla">
-                        <option value="10">Talla 10</option>
-                        <option value="12">Talla 12</option>
-                        <option value="14">Talla 14</option>
-                    </select>
+                    <div class="select-box">
+                        <select class="talla">
+                            <option value="10">Talla 10</option>
+                            <option value="12">Talla 12</option>
+                            <option value="14">Talla 14</option>
+                        </select>
+                    </div>
 
                     <button onclick="addToCart('Anillo Plata',25,this)">Añadir</button>
                 </div>
@@ -155,10 +168,6 @@
     updateCartCount();
     renderCart();
 
-    function toggleCart() {
-        document.getElementById("carrito").classList.toggle("abierto");
-        document.getElementById("overlay").classList.toggle("activo");
-    }
 
     function addToCart(nombre, precio, boton) {
         let producto = boton.parentElement;
@@ -182,10 +191,15 @@
             total += item.precio;
 
             container.innerHTML += `
-   <p>${item.nombre} | ${item.talla} | ${item.precio}€
-   <span onclick="removeItem(${i})">
-    <img src="img/trash.svg" style="margin-left: 80px; cursor:pointer;"></img></span>
-   </p>`;
+        <tr>
+            <td>${item.nombre}</td>
+            <td>${item.talla}</td>
+            <td>${item.precio}€</td>
+            <td>
+                <img src="img/trash.svg" onclick="removeItem(${i})">
+            </td>
+        </tr>
+        `;
         });
 
         if (total >= envioGratis) {
@@ -200,6 +214,7 @@
 
         document.getElementById("total").innerText = total.toFixed(2);
     }
+
 
     function removeItem(i) {
         cart.splice(i, 1);
@@ -220,19 +235,50 @@
         // 🔴 TU LINK REAL STRIPE
         window.location.href = "TU_LINK_STRIPE_AQUI";
     }
+
     function toggleMenu() {
-        document.getElementById("menuMovil").classList.toggle("abierto");
+        let menu = document.getElementById("menuMovil");
+        let carrito = document.getElementById("carrito");
+        let overlay = document.getElementById("overlay");
+
+        menu.classList.toggle("abierto");
+
+        // cerrar carrito si estaba abierto
+        carrito.classList.remove("abierto");
+
+        // activar overlay si menú abierto
+        if (menu.classList.contains("abierto")) {
+            overlay.classList.add("activo");
+        } else {
+            overlay.classList.remove("activo");
+        }
     }
 
+
     function toggleCart() {
-        document.getElementById("carrito").classList.toggle("abierto");
-        document.getElementById("overlay").classList.toggle("activo");
+        let carrito = document.getElementById("carrito");
+        let menu = document.getElementById("menuMovil");
+        let overlay = document.getElementById("overlay");
+
+        carrito.classList.toggle("abierto");
+
+        // cerrar menú si estaba abierto
+        menu.classList.remove("abierto");
+
+        // activar overlay si carrito abierto
+        if (carrito.classList.contains("abierto")) {
+            overlay.classList.add("activo");
+        } else {
+            overlay.classList.remove("activo");
+        }
     }
+
     function cerrarTodo() {
         document.getElementById("menuMovil")?.classList.remove("abierto");
         document.getElementById("carrito")?.classList.remove("abierto");
         document.getElementById("overlay")?.classList.remove("activo");
     }
+
     function guardarCarrito() {
         localStorage.setItem("cart", JSON.stringify(cart));
     }

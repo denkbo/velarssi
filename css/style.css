@@ -34,7 +34,7 @@ h1,h2,h3{
 
 .hero-texto{
   position:absolute;
-  bottom:12%;
+  bottom: 7%;
   left:8%;
   color:white;
 }
@@ -257,6 +257,41 @@ form {
   border-radius:50%;
   padding:2px 6px;
 }
+.tabla-carrito{
+  width:100%;
+  border-collapse: collapse;
+  margin-top:20px;
+  font-size:14px;
+}
+
+.tabla-carrito th{
+  text-align:left;
+  border-bottom:1px solid #ddd;
+  padding:10px 5px;
+  font-weight:normal;
+  letter-spacing:1px;
+}
+
+.tabla-carrito td{
+  padding:12px 5px;
+  border-bottom:1px solid #f1f1f1;
+}
+
+.tabla-carrito tr:last-child td{
+  border-bottom:none;
+}
+
+.tabla-carrito img{
+  width:18px;
+  cursor:pointer;
+  opacity:0.6;
+}
+
+.tabla-carrito img:hover{
+  opacity:1;
+  transform:scale(1.1);
+}
+
 
 /* SOLO EN PC */
 @media (min-width: 769px){
@@ -402,7 +437,7 @@ position:absolute;
 
 /* HEADER móvil limpio */
 .header-movil{
-    position:sticky;
+    position: sticky;
     top:0;
     z-index:999;
     display:flex;
@@ -442,7 +477,7 @@ position:absolute;
     gap:25px;
     transition:0.4s;
     z-index:1000;
-    margin-top: 16%;
+    margin-top: 19.6%;
 }
 
 .menu-movil.abierto{
@@ -481,7 +516,7 @@ position:absolute;
   padding:30px;
   transition:0.4s;
   z-index:1001;
-  margin-top: 16%;
+  margin-top: 19.6%;
   margin-left: 21%;
 
 }
@@ -513,5 +548,42 @@ position:absolute;
   opacity:1;
   pointer-events:auto;
 }
+select{
+  -webkit-appearance:none;  /* QUITA estilo iPhone */
+  appearance:none;
+
+  width:100%;
+  padding:12px;
+  border-radius:0;          /* sin redondeado iOS */
+  border:1px solid black;
+  background:white;
+  font-size:16px;           /* importante para iPhone */
+}
+.select-box{
+  position:relative;
+  width:100%;
+}
+
+.select-box select{
+  -webkit-appearance:none;
+  appearance:none;
+  width:100%;
+  padding:14px;
+  border:1px solid black;
+  background:white;
+  font-size:16px;
+}
+
+/* flecha */
+.select-box::after{
+  content:"⌄";
+  position:absolute;
+  right:14px;
+  top:50%;
+  transform:translateY(-50%);
+  pointer-events:none;
+  font-size:14px;
+}
+
 
 }

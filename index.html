@@ -24,7 +24,7 @@
             </div>
 
             <!-- carrito -->
-           <div class="cart-btn" onclick="toggleCart()">
+            <div class="cart-btn" onclick="toggleCart()">
                 <img src="img/shopping-cart.svg" class="icon-cart">
                 <span id="contador1">0</span>
             </div>
@@ -71,7 +71,18 @@
         <!-- CARRITO -->
         <div class="carrito" id="carrito">
             <h2>Tu pedido</h2>
-            <div id="cart-items"></div>
+            <table class="tabla-carrito">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Talla</th>
+                        <th>€</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+
             <p id="envio" style="color: green; padding: 20px;"></p>
             <h3>Total: <span id="total">0</span>€</h3>
             <button class="pagar" onclick="checkout()">Pagar</button>
@@ -91,7 +102,7 @@
 
         <section>
             <div class="titulos">
-                <p>FOTOGRAFIA</p>
+                <p>ANILLOS</p>
             </div>
             <div class="galeria">
                 <div>
@@ -111,13 +122,13 @@
                 </div>
             </div>
             <div class="boton">
-                <button><a href="FOTOGRAFIA.HTML">Ver más</a></button>
+                <button><a href="anillos.html">Ver más</a></button>
             </div>
 
         </section>
         <section>
             <div class="titulos">
-                <p>PINTURA</p>
+                <p>PENDIENTES</p>
             </div>
             <div class="galeria">
                 <div>
@@ -163,10 +174,6 @@
     updateCartCount();
     renderCart();
 
-    function toggleCart() {
-        document.getElementById("carrito").classList.toggle("abierto");
-        document.getElementById("overlay").classList.toggle("activo");
-    }
 
     function addToCart(nombre, precio, boton) {
         let producto = boton.parentElement;
@@ -190,9 +197,15 @@
             total += item.precio;
 
             container.innerHTML += `
-   <p>${item.nombre} | ${item.talla} | ${item.precio}€
-   <span onclick="removeItem(${i})" style="margin-left: 10px; cursor:pointer; font-weight: bold; color: red">✕</span>
-   </p>`;
+        <tr>
+            <td>${item.nombre}</td>
+            <td>${item.talla}</td>
+            <td>${item.precio}€</td>
+            <td>
+                <img src="img/trash.svg" onclick="removeItem(${i})">
+            </td>
+        </tr>
+        `;
         });
 
         if (total >= envioGratis) {
@@ -228,13 +241,42 @@
         window.location.href = "TU_LINK_STRIPE_AQUI";
     }
     function toggleMenu() {
-        document.getElementById("menuMovil").classList.toggle("abierto");
+        let menu = document.getElementById("menuMovil");
+        let carrito = document.getElementById("carrito");
+        let overlay = document.getElementById("overlay");
+
+        menu.classList.toggle("abierto");
+
+        // cerrar carrito si estaba abierto
+        carrito.classList.remove("abierto");
+
+        // activar overlay si menú abierto
+        if (menu.classList.contains("abierto")) {
+            overlay.classList.add("activo");
+        } else {
+            overlay.classList.remove("activo");
+        }
     }
 
+
     function toggleCart() {
-        document.getElementById("carrito").classList.toggle("abierto");
-        document.getElementById("overlay").classList.toggle("activo");
+        let carrito = document.getElementById("carrito");
+        let menu = document.getElementById("menuMovil");
+        let overlay = document.getElementById("overlay");
+
+        carrito.classList.toggle("abierto");
+
+        // cerrar menú si estaba abierto
+        menu.classList.remove("abierto");
+
+        // activar overlay si carrito abierto
+        if (carrito.classList.contains("abierto")) {
+            overlay.classList.add("activo");
+        } else {
+            overlay.classList.remove("activo");
+        }
     }
+
     function cerrarTodo() {
         document.getElementById("menuMovil")?.classList.remove("abierto");
         document.getElementById("carrito")?.classList.remove("abierto");
