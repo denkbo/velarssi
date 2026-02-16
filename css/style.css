@@ -455,11 +455,14 @@ position:absolute;
     letter-spacing:14px;
     font-size:18px;
     font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    
 }
 
 .cabecera a{
     text-decoration:none;
     color:black;
+    margin-left: 10px;
 }
 
 
@@ -571,7 +574,8 @@ select{
   padding:14px;
   border:1px solid black;
   background:white;
-  font-size:16px;
+  font-size:14px;
+  color: #666;
 }
 
 /* flecha */
