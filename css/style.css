@@ -384,7 +384,7 @@ form {
 }
 
 .visor img{
-  max-width:100%;
+  max-width:520px;
   height: auto;
   display:block;
   transition:opacity .4s ease;
@@ -750,96 +750,6 @@ select option{
 .titulos-pc{
     display: none;
 }
-/* prueba tienda nueva */
-.tienda{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:40px;
-}
-
-.producto{
-  width:260px;
-  text-align:center;
-  text-decoration:none;
-  color:black;
-  transition:0.3s;
-}
-
-.producto:hover{
-  transform:scale(1.03);
-}
-
-.producto img{
-  width:100%;
-}
-.producto-page{
-  display:flex;
-  flex-direction: column;
-  gap:30px;
-  max-width:1200px;
-  margin:auto;
-  padding:30px 20px;
-}
-
-.galeria-producto{
-  width:100%;
-}
-
-.galeria-producto img{
-  width:100%;
-  margin-bottom:0px;
-}
-
-.info-producto{
-  width:100%;
-}
-
-.info-producto h1{
-  font-size:28px;
-  letter-spacing:3px;
-}
-
-.precio{
-  font-size:22px;
-  margin:20px 0;
-}
-
-.desc{
-  margin-bottom:30px;
-  line-height:1.6;
-}
-
-.info-producto select{
-  width:120px;
-  padding:10px;
-  margin-bottom:20px;
-}
-
-.info-producto button{
-  width:100%;
-  padding:15px;
-  background:black;
-  color:white;
-  border:none;
-  font-size:16px;
-  cursor:pointer;
-}
-.envio-info{
-    margin-top: 20px;
-}
-.galeria-dios{
-  width:100%;
-  max-width:520px;
-  margin:auto;
-  user-select:none;
-}
-
-.visor{
-  position:relative;
-  overflow:hidden;
-}
-
 .visor img{
   width:100%;
   display:block;
