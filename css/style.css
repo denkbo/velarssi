@@ -373,8 +373,7 @@ form {
     margin-top: 20px;
 }
 .galeria-dios{
-  width:100%;
-  max-width:320px;
+  max-width:520px;
   margin:auto;
   user-select:none;
 }
@@ -385,7 +384,8 @@ form {
 }
 
 .visor img{
-  width:100%;
+  max-width:100%;
+  height: auto;
   display:block;
   transition:opacity .4s ease;
 }
