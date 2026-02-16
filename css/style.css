@@ -374,7 +374,7 @@ form {
 }
 .galeria-dios{
   width:100%;
-  max-width:520px;
+  max-width:320px;
   margin:auto;
   user-select:none;
 }
@@ -588,7 +588,7 @@ position:absolute;
 
 }
 
-@media (max-width: 768px){
+@media (max-width: 520px){
  
 
 /* HEADER móvil limpio */
