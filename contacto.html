@@ -56,9 +56,9 @@
 
             <nav class="menu">
                 <ul>
-                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html">INICIO</a></li>
                     <li><a href="anillos.html">ANILLOS</a></li>
-                    <li><a href="">PINTURA</a></li>
+                    <li><a href="">PENDIENTES</a></li>
                     <li><a href="contacto.html">CONTACTO</a></li>
                 </ul>
             </nav>
@@ -95,74 +95,40 @@
         </div>
     </header>
 
+
     <main class="contenedor">
-        <section>
-            <div class="titulos-pc">
-                <p>ANILLOS</p>
-            </div>
-            <div class="titulos">
-                <p>ANILLOS</p>
-            </div>
+        <section class="contacto">
+
+            <h2>Contacto</h2>
+            <p class="contacto-sub">
+                Para encargos especiales, dudas o información sobre piezas.
+            </p>
+
+            <form class="form-contacto">
+
+                <div class="campo">
+                    <label>Nombre</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="campo">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="campo">
+                    <label>Mensaje</label>
+                    <textarea rows="5" required></textarea>
+                </div>
+
+                <button type="submit">Enviar mensaje</button>
+
+            </form>
+
         </section>
-
-        <div class="producto-page">
-
-            <!-- IMAGENES -->
-            <div class="galeria-dios">
-
-                <div class="visor">
-                    <img id="imgActiva" src="img/ChatGPT Image 16 feb 2026, 04_38_54.png">
-
-                    <button class="nav prev" onclick="cambiar(-1)">‹</button>
-                    <button class="nav next" onclick="cambiar(1)">›</button>
-                </div>
-
-                <div class="dots" id="dots"></div>
-
-            </div>
-
-
-            <!-- INFO -->
-            <div class="info-producto">
-                <h1>Anillo Plata</h1>
-                <p class="precio">25€</p>
-
-                <p class="desc">
-                    Anillo en plata maciza hecho a mano en España.
-                    Cada pieza se fabrica individualmente.
-                </p>
-
-                <!-- TALLAS -->
-                <label>Talla</label>
-
-                <div class="select-talla">
-                    <select class="talla">
-                        <option value="10">10</option>
-                        <option value="12">12</option>
-                        <option value="14">14</option>
-                    </select>
-                </div>
-
-
-                <!-- BOTON -->
-                <button onclick="addToCart('Anillo Plata',25,this)">
-                    Añadir al carrito
-                </button>
-
-                <!-- INFO ENVIO -->
-                <p class="envio-info">
-                    Fabricación: 3-5 días<br>
-                    Envío España 24/48h<br>
-                <p style="color: green;">Gratis desde 50€</p>
-                </p>
-
-            </div>
-
-        </div>
 
 
     </main>
-
     <div class="flecha">
         <a href="#HOME">
             <img src="img/flecha-hacia-arriba.png" alt="">
@@ -191,6 +157,7 @@
 
         </div>
     </footer>
+
 </body>
 
 <script>
@@ -320,66 +287,5 @@
         document.getElementById("contador1").innerText = cart.length;
         document.getElementById("contador2").innerText = cart.length;
     }
-    let imagenes = [
-        "img/ChatGPT Image 16 feb 2026, 04_38_54.png",
-        "img/ChatGPT Image 16 feb 2026, 04_41_19.png",
-        "img/ChatGPT Image 16 feb 2026, 04_38_54.png",
-        "img/ChatGPT Image 16 feb 2026, 04_41_19.png",
-    ];
-
-    let index = 0;
-    const img = document.getElementById("imgActiva");
-    const dotsContainer = document.getElementById("dots");
-
-    /* crear dots */
-    imagenes.forEach((_, i) => {
-        let d = document.createElement("div");
-        d.className = "dot";
-        d.onclick = () => irA(i);
-        dotsContainer.appendChild(d);
-    });
-
-    function actualizarDots() {
-        document.querySelectorAll(".dot").forEach((d, i) => {
-            d.classList.toggle("activo", i === index);
-        });
-    }
-
-    function cambiar(dir) {
-        index += dir;
-        if (index < 0) index = imagenes.length - 1;
-        if (index >= imagenes.length) index = 0;
-        actualizar();
-    }
-
-    function irA(i) {
-        index = i;
-        actualizar();
-    }
-
-    function actualizar() {
-        img.style.opacity = 0;
-        setTimeout(() => {
-            img.src = imagenes[index];
-            img.style.opacity = 1;
-            actualizarDots();
-        }, 150);
-    }
-
-    actualizarDots();
-
-    /* swipe móvil */
-    let startX = 0;
-
-    img.addEventListener("touchstart", e => {
-        startX = e.touches[0].clientX;
-    });
-
-    img.addEventListener("touchend", e => {
-        let endX = e.changedTouches[0].clientX;
-
-        if (endX < startX - 50) cambiar(1);
-        if (endX > startX + 50) cambiar(-1);
-    });
 
 </script>

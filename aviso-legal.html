@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviso legal y privacidad</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+ <header>
+        <div class="header-movil">
+
+            <!-- botón menú -->
+            <div class="menu-movil-btn" onclick="toggleMenu()">☰</div>
+
+            <!-- logo centro -->
+            <div class="cabecera">
+                <a href="index.html">VELARSSI</a>
+            </div>
+
+            <!-- carrito -->
+            <div class="cart-btn" onclick="toggleCart()">
+                <img src="img/shopping-cart.svg" class="icon-cart">
+                <span id="contador1">0</span>
+            </div>
+
+
+            <!-- MENÚ LATERAL MÓVIL -->
+            <div class="menu-movil" id="menuMovil">
+                <a href="index.html">INICIO</a>
+                <a href="anillos.html">ANILLOS</a>
+                <a href="#">PENDIENTES</a>
+                <a href="contacto.html">CONTACTO</a>
+
+                <div class="icono-ig">
+                    <img src="img/instagram.png">
+                </div>
+                <div class="ig-movil">
+                    <img src="img/instagram.png">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-pc">
+            <div class="cabecera-pc">
+                <a href="index.html">VELARSSI</a>
+            </div>
+
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="anillos.html">ANILLOS</a></li>
+                    <li><a href="">PENDIENTES</a></li>
+                    <li><a href="contacto.html">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <div class="icono-ig"> <a href=""> <img src="img/instagram.png" alt=""> </a>
+            </div>
+            <div class="cart-btn" onclick="toggleCart()">
+                <img src="img/shopping-cart.svg" class="icon-cart">
+                <span id="contador2">0</span>
+            </div>
+
+
+        </div>
+
+        <!-- CARRITO -->
+        <div class="carrito" id="carrito">
+            <h2>Tu pedido</h2>
+            <table class="tabla-carrito">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Talla</th>
+                        <th>€</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+
+            <p id="envio" style="color: green; padding: 20px;"></p>
+            <h3>Total: <span id="total">0</span>€</h3>
+            <button class="pagar" onclick="checkout()">Pagar</button>
+            <p style="margin-top: 50px; text-decoration: underline; " onclick="toggleCart()">Seguir comprando</p>
+
+        </div>
+    </header>
+
+<main class="pagina-texto">
+
+<h1>Aviso legal y privacidad</h1>
+
+<h3>Información general</h3>
+<p>
+Este sitio web muestra y comercializa piezas de joyería y obra artística.
+El titular del sitio es Velarssi.
+</p>
+
+<h3>Propiedad intelectual</h3>
+<p>
+Todos los diseños, fotografías y contenidos presentes en esta web
+son propiedad de Velarssi y no pueden reproducirse sin autorización.
+</p>
+
+<h3>Protección de datos</h3>
+<p>
+Los datos facilitados mediante formularios de contacto o compra
+se utilizan únicamente para la gestión de pedidos y comunicaciones
+relacionadas con los mismos.
+</p>
+
+<p>
+No se ceden datos a terceros salvo obligación legal o gestión del envío.
+</p>
+
+<h3>Pagos</h3>
+<p>
+Los pagos se procesan a través de plataformas externas seguras.
+Velarssi no almacena datos de tarjetas de pago.
+</p>
+
+<h3>Contacto</h3>
+<p>
+Para cualquier consulta relacionada con privacidad o pedidos:
+<br><br>
+velarssi.contacto@email.com
+</p>
+
+</main>
+
+ <footer class="footer">
+        <div class="footer-contenido">
+
+            <div class="footer-marca">
+                <h3>VELARSSI</h3>
+                <p>Piezas elaboradas artesanalmente en España.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="anillos.html">Anillos</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="envios.html">Envíos</a>
+                <a href="guia-tallas.html">Guía de tallas</a>
+                <a href="aviso-legal.html">Aviso legal</a>
+                <a href="">Instagram</a>
+            </div>
+
+            <div class="footer-copy">
+                © 2026 Daniel Encabo® All rights reserved
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
