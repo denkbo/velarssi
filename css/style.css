@@ -54,7 +54,12 @@ h3 {
     font-size: 14px;
     letter-spacing: 3px;
 }
-
+.nota-tallas {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
 
 
 .contenedor {
